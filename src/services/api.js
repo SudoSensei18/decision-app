@@ -1,11 +1,13 @@
-const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
+const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
 
 function callApi(prompt) {
   return fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${API_KEY}`,
-      "Content-Type": "application/json"
+      "Authorization": `Bearer ${apiKey}`,
+      "HTTP-Referer": "https://decision-app-iota.vercel.app/",
+      "Content-Type": "application/json",
+      "X-Title": "decision-app"
     },
     body: JSON.stringify({
       "model": "xiaomi/mimo-v2-flash:free",
